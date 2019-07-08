@@ -34,13 +34,6 @@ class AuthProvider extends Component {
     return false
   };
 
-// {
-//   "firstName": "Lavan",
-//   "lastName": "PREPANANTHA",
-//   "email": "rootm@gmail.com",
-//   "password": "root"
-// }
-
 register = async (firstname,lastname,email, password) => {
     var response;
     try {
