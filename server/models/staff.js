@@ -16,12 +16,12 @@ const StaffSchema = new mongoose.Schema({
   createdAt: Date,
 });
 
+StaffSchema.index({ firstname: 'text', lastname: 'text', biography: 'text', nationality: 'text' });
+
 StaffSchema.pre('save', function (next) {
-  console.log('Saving ...' + this.title);
+  console.log('Saving ...' + this.firstname);
+  this.createdAt = Date.now();
   next();
-});
-StaffSchema.post('save', function (doc) {
-  console.log(doc.title + ' is saved');
 });
 
 module.exports = db.model('Staff', StaffSchema); // movies
