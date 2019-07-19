@@ -1,13 +1,14 @@
 import React, {useContext} from 'react';
 import { AuthContext } from "../Auth/AuthProvider";
+import { Redirect } from 'react-router-dom';
 
-const Logout = (props) => {
+const Logout = () => {
   let { setUser } = useContext(AuthContext);
 
   const onClick = () => {
     sessionStorage.removeItem('jwt');
-    setUser(null)
-    props.history.push(`/`);
+    setUser(null);
+    return <Redirect to='/'/>
   };
   return ( <button onClick={() => onClick()}>Logout</button> );
 };

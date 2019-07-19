@@ -2,9 +2,10 @@ import React, { useContext }  from 'react';
 import { BrowserRouter , Link } from "react-router-dom";
 import Router from '../Router';
 import { AuthContext } from "../Auth/AuthProvider";
+import Logout from '../Logout';
 
 const NavBar = () => {
-  let { user, logout } = useContext(AuthContext);
+  let { user } = useContext(AuthContext);
   return  (
     <BrowserRouter>
       <div>
@@ -13,9 +14,14 @@ const NavBar = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li><input /></li>
+            <li>
+            </li>
+            <li><Link to="/search">🔍</Link></li>
             {
-              user ? <li><button onClick={() => logout()}>Logout</button> </li>:
+              user ? <>
+                <Logout/>
+                  <li><Link to="/create/staff">Add staff</Link></li>
+                </>:
                 <>
                   <li>
                     <Link to="/login">Login</Link>
