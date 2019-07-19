@@ -13,17 +13,9 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  },
-  newsLetterAccepted: { type : Boolean, required: true},
-  newsLetterAcceptedDate: { type : Date, required: true},
+  }
 });
 
-UserSchema.pre('validate', function (next) {
-  if (this.newsLetterAccepted) {
-    this.newsLetterAcceptedDate = Date.now()
-  }
-  next();
-});
 
 UserSchema.pre('save', function (next) {
   bcrypt.genSalt(10).then(salt => {
@@ -32,10 +24,6 @@ UserSchema.pre('save', function (next) {
       next();
     });
   });
-});
-
-UserSchema.post('save', function (doc) {
-  console.log(doc.firstName + ' ' + doc.lastName + ' is saved');
 });
 
 UserSchema.statics.login = function (email, password) {
