@@ -11,7 +11,7 @@ class AuthProvider extends Component {
     user: null,
   };
 
-  setUser = user => this.setState(user);
+  setUser = user => this.setState({user});
 
   componentDidMount(){
     const token = sessionStorage.getItem('jwt');
