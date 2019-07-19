@@ -1,5 +1,5 @@
 export default [
-  'login',
   'logout',
   'register',
+  'setUser',
 ];

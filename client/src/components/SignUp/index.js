@@ -1,5 +1,5 @@
 import React,{ useState,useContext }  from 'react';
-import {AuthContext} from "../Auth/AuthProvider";
+import { register } from '../../api/authentication';
 
 const SignUp = (props) => {
   const [firstname,setFirstname] = useState('');
@@ -8,7 +8,6 @@ const SignUp = (props) => {
   const [password,setPassword] = useState('');
   const [secondPassword,setSecondPassword] = useState('');
   const [errors,setErrors] = useState([]);
-  const { register } = useContext(AuthContext);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -25,11 +24,15 @@ const SignUp = (props) => {
     }
     setErrors(err);
     if(err.length === 0){
-      register(firstname,lastname,email,password).then( response => {
-        if(response) {
+      register({firstname,lastname,email,password}).then( response => {
+        if(response){
+          const serverError  = Object.keys(response).map(key => response[key].message);
+          err = [...err,...serverError];
+        }
+        if(!err.length) {
           props.history.push(`/`);
         } else {
-          setErrors({connection: 'Invalid credentials'});
+          setErrors(err);
         }
       });
     }

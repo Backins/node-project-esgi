@@ -1,22 +1,27 @@
 import React, {useContext,useState} from 'react';
 import { AuthContext } from "../Auth/AuthProvider";
+import { login } from '../../api/authentication';
+import decode from "jwt-decode";
 
 const Login = (props) => {
-  let { login } = useContext(AuthContext);
+  let { setUser } = useContext(AuthContext);
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   let [errors,setErrors] = useState({'email' : '','connection':''});
 
   const handleSubmit = e => {
     e.preventDefault();
-    login(email,password).then( response => {
-      if(response) {
+
+    login({email,password}).then( res =>{
+      if(res.token){
+        const token = res.token;
+        sessionStorage.setItem('jwt', token);
+        setUser({user :decode(token)});
         props.history.push(`/`);
       } else {
-        setErrors({connection: 'Invalid credentials'});
+        setErrors({connection: res.error});
       }
     });
-
   };
 
   const handleChange = event => {
