@@ -2,14 +2,6 @@ import React, { useState } from 'react';
 import { addStaff } from "../../api/staff";
 
 const StaffAdd = props => {
-  // {
-  //   firstname,
-  //     lastname,
-  //     nationality: String,
-  //   biography: String,
-  //   birthday: Date,
-  //   createdAt: Date,
-  // }
 
   const [firstname, setFirstname ] = useState('');
   const [lastname, setLastname] = useState('');
