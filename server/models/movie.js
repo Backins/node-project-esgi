@@ -12,8 +12,13 @@ const MovieSchema = new mongoose.Schema({
     type: String,
     enum: ['Drama', 'SF', 'Comedy', 'Action']
   },
-  staffs: [{
-    role: String,
+  actors: [{
+    staff: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Staff'
+    }
+  }],
+  realisators: [{
     staff: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Staff'

@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { addMovie } from "../../api/movie";
+import { getStaffs } from "../../api/staff";
 
 const MovieAdd = props => {
 
   const [title, setTitle ] = useState('');
   const [year, setYear] = useState('');
   const [category, setCategory] = useState('');
-  const [staffs, setStaffs] = useState('');
+  const [actors, setActors] = useState('');
+  const [realisator, setRealisator] = useState('');
   const [errors, setErrors] = useState([]);
+  const [staffs, setStaffs] = useState([]);
 
   useEffect(() => {
-    console.log('coucou');
+    getStaffs().then((response) => {
+      console.log(response);
+      setStaffs(response);
+    });
   });
 
   const handleSubmit = event => {
@@ -68,8 +74,18 @@ const MovieAdd = props => {
       <input  required={true} type="text" value={category} onChange={e => setCategory(e.target.value)}/>
     </div>
     <div>
-      <label>Staffs</label>
-      <textarea type="text" value={staffs} onChange={e => setStaffs(e.target.value)}/>
+      <label>Acteurs</label>
+      <select multiple={true}>
+        <option>Sélectionner des personnes</option>
+        {staffs.map(staff => <option>{staff.firstname + ' ' + staff.lastname}</option>)}
+      </select>
+    </div>
+    <div>
+      <label>Réalisateur</label>
+      <select multiple={false}>
+        <option>Sélectionner une personne</option>
+        {staffs.map(staff => <option>{staff.firstname + ' ' + staff.lastname}</option>)}
+      </select>
     </div>
     <input type="submit" value="Send" onClick={handleSubmit}/>
   </form>

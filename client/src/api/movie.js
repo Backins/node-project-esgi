@@ -2,7 +2,7 @@ import axios from './';
 
 export const addMovie = async (params = {}) => {
   try {
-    const { data } = await axios.post('/staffs', params);
+    const { data } = await axios.post('/movies', params);
     return data;
   } catch (e) {
     return e.response.data;
@@ -11,7 +11,7 @@ export const addMovie = async (params = {}) => {
 
 export const getMovies = async (params = {}) => {
   try {
-    const { data } = await axios.get('/staffs');
+    const { data } = await axios.get('/movies');
     return data;
   } catch (e) {
     return e.response.data;
