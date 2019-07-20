@@ -11,11 +11,19 @@ const MovieSchema = new mongoose.Schema({
   category: {
     type: String,
     enum: ['Drama', 'SF', 'Comedy', 'Action']
-  }
+  },
+  staffs: [{
+    role: String,
+    staff: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Staff'
+    }
+  }]
 });
 
 MovieSchema.pre('save', function (next) {
   console.log('Saving ...' + this.title);
+  this.createdAt = Date.now();
   next();
 });
 MovieSchema.post('save', function (doc) {

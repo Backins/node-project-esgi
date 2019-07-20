@@ -6,6 +6,7 @@ import Logout from '../Logout';
 
 const NavBar = () => {
   let { user } = useContext(AuthContext);
+
   return  (
     <BrowserRouter>
       <div>
@@ -21,6 +22,7 @@ const NavBar = () => {
               user ? <>
                 <Logout/>
                   <li><Link to="/create/staff">Add staff</Link></li>
+                  <li><Link to="/create/movie">Add movie</Link></li>
                 </>:
                 <>
                   <li>
