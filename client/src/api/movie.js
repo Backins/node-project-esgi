@@ -17,3 +17,12 @@ export const getMovies = async (params = {}) => {
     return e.response.data;
   }
 };
+
+export const SearchMovies = async (searchTerm) => {
+  try {
+    const { data } = await axios.get(`/movies?q=${searchTerm}`);
+    return data;
+  } catch (e) {
+    return e.response.data;
+  }
+};

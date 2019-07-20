@@ -1,12 +1,17 @@
 import React,{useState} from 'react';
 import { SearchStaffs } from '../../api/staff';
+import { SearchMovies } from '../../api/movie';
+
 const Search = () => {
   const [searchTerm,setSearchTerm] = useState('');
-  const [displayStaff,setDisplayStaff] = useState(false);
+  const [displayStaff,setDisplayStaff] = useState(true);
+  const [displayMovie, setDisplayMovie] = useState(true);
   const [staffs,setStaffs] = useState([]);
+  const [movies,setMovies] = useState([]);
 
   const submitSearch = () => {
     SearchStaffs(searchTerm).then(res => setStaffs(res));
+    SearchMovies(searchTerm).then(res => setMovies(res));
   };
 
   return <>
@@ -17,8 +22,7 @@ const Search = () => {
     </div>
 
     <div>
-      <span onClick={() => setDisplayStaff(false)}>Movie</span>
-      <span onClick={() => setDisplayStaff(true)}>Staffs</span>
+      <span onClick={() => setDisplayStaff(!displayStaff)}><strong>Staffs</strong></span>
     </div>
     {
       displayStaff ?
@@ -51,10 +55,46 @@ const Search = () => {
         }
         </div> :
         <div>
-          Display Movies
         </div>
     }
-
+    <div>
+    <span onClick={() => setDisplayMovie(!displayMovie)}><strong>Movie</strong></span>
+    </div>
+        { displayMovie ? 
+          <div>
+          {
+            movies.map(movie =>
+              <div key={Math.random()}>
+                <div>
+                  <label>Titre :</label>
+                  <span>{movie.title}</span>
+                </div>
+                <div>
+                  <label>Année :</label>
+                  <span>{movie.year}</span>
+                </div>
+                <div>
+                  <label>Catégorie :</label>
+                  <span>{movie.category}</span>
+                </div>
+                <div>
+                  <label>Réalisateur :</label>
+                  <span>{movie.realisator}</span>
+                </div>
+                <div>
+                  <label>Acteurs :</label>
+                  <ul>
+                  { movie.actors.map(actor => 
+                      <li key={Math.random()}>{actor}</li>
+                   )}
+                    </ul>
+                </div>
+              </div>
+            )
+          }
+          </div> :
+          <div></div>
+        }
   </> ;
 };
 
