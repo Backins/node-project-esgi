@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { addMovie } from "../../api/movie";
 import { getStaffs } from "../../api/staff";
 
@@ -10,13 +10,17 @@ const MovieAdd = props => {
   const [actors, setActors] = useState('');
   const [realisator, setRealisator] = useState('');
   const [errors, setErrors] = useState([]);
-  const [staffs, setStaffs] = useState([]);
+  const ref = useRef( { mounted: false });
+  const [staffs, setStaffs] = useState('');
 
   useEffect(() => {
-    getStaffs().then((response) => {
-      console.log(response);
-      setStaffs(response);
-    });
+    if(!ref.current.mounted) {
+      getStaffs().then((response) => {
+        setStaffs(response);
+      });
+      
+      ref.current = { mounted: true };
+    }
   });
 
   const handleSubmit = event => {
@@ -77,14 +81,14 @@ const MovieAdd = props => {
       <label>Acteurs</label>
       <select multiple={true}>
         <option>Sélectionner des personnes</option>
-        {staffs.map(staff => <option>{staff.firstname + ' ' + staff.lastname}</option>)}
+        {staffs.map( staff => <option>{staff.firstname + ' ' + staff.lastname}</option>)}
       </select>
     </div>
     <div>
       <label>Réalisateur</label>
       <select multiple={false}>
         <option>Sélectionner une personne</option>
-        {staffs.map(staff => <option>{staff.firstname + ' ' + staff.lastname}</option>)}
+        
       </select>
     </div>
     <input type="submit" value="Send" onClick={handleSubmit}/>
