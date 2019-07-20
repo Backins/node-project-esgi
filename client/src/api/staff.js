@@ -17,3 +17,12 @@ export const getStaffs = async (params = {}) => {
     return e.response.data;
   }
 };
+
+export const SearchStaffs = async (searchTerm) => {
+  try {
+    const { data } = await axios.get(`/staffs?q=${searchTerm}`);
+    return data;
+  } catch (e) {
+    return e.response.data;
+  }
+};

@@ -16,7 +16,7 @@ const StaffSchema = new mongoose.Schema({
   createdAt: Date,
 });
 
-StaffSchema.index({ firstname: 'text', lastname: 'text', biography: 'text', nationality: 'text' });
+StaffSchema.index({ firstname: 'text', lastname: 'text', biography: 'text', nationality: 'text', birthday: 'text' });
 
 StaffSchema.pre('save', function (next) {
   console.log('Saving ...' + this.firstname);
