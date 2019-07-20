@@ -11,11 +11,24 @@ const MovieSchema = new mongoose.Schema({
   category: {
     type: String,
     enum: ['Drama', 'SF', 'Comedy', 'Action']
+  },
+  //actors: [{
+    //staff: {
+      //type: mongoose.Schema.Types.ObjectId,
+      //ref: 'Staff'
+    //}
+  //}],
+  actors: [String],
+  realisator: {
+    //type: mongoose.Schema.Types.ObjectId,
+    //ref: 'Staff'
+    type: String
   }
 });
 
 MovieSchema.pre('save', function (next) {
   console.log('Saving ...' + this.title);
+  this.createdAt = Date.now();
   next();
 });
 MovieSchema.post('save', function (doc) {
