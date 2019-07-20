@@ -11,14 +11,14 @@ const MovieAdd = props => {
   const [realisator, setRealisator] = useState('');
   const [errors, setErrors] = useState([]);
   const ref = useRef( { mounted: false });
-  const [staffs, setStaffs] = useState('');
+  const [staffs, setStaffs] = useState([]);
 
   useEffect(() => {
     if(!ref.current.mounted) {
       getStaffs().then((response) => {
         setStaffs(response);
       });
-      
+
       ref.current = { mounted: true };
     }
   });
@@ -88,7 +88,7 @@ const MovieAdd = props => {
       <label>Réalisateur</label>
       <select multiple={false}>
         <option>Sélectionner une personne</option>
-        
+        {staffs.map( staff => <option>{staff.firstname + ' ' + staff.lastname}</option>)}
       </select>
     </div>
     <input type="submit" value="Send" onClick={handleSubmit}/>
