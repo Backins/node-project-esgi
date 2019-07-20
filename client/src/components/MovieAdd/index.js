@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { addMovie } from "../../api/movie";
+import { addMovie, getMovies } from "../../api/movie";
 import { getStaffs } from "../../api/staff";
 
 const MovieAdd = props => {
@@ -17,6 +17,11 @@ const MovieAdd = props => {
     if(!ref.current.mounted) {
       getStaffs().then((response) => {
         setStaffs(response);
+      });
+
+
+      getMovies().then((response) => {
+        console.log(response);
       });
 
       ref.current = { mounted: true };
@@ -42,7 +47,8 @@ const MovieAdd = props => {
         title,
         year,
         category,
-        staffs,
+        actors,
+        realisator
       }).then(response =>
       {
           if (response.id) {
@@ -56,6 +62,18 @@ const MovieAdd = props => {
           }
       })
     }
+  };
+
+  const handleChangeActors = (e) => {
+    const options = e.target.childNodes;
+    let tmpActors = [];
+
+    options.forEach(option => {
+      if(option.selected && option.value){
+        tmpActors.push(option.value);
+      }
+    })
+    setActors(tmpActors);
   };
 
 
@@ -79,16 +97,15 @@ const MovieAdd = props => {
     </div>
     <div>
       <label>Acteurs</label>
-      <select multiple={true}>
-        <option>Sélectionner des personnes</option>
-        {staffs.map( staff => <option>{staff.firstname + ' ' + staff.lastname}</option>)}
+      <select multiple={true} onChange={e => handleChangeActors(e)}>
+        {staffs.map( staff => <option value={staff._id}>{staff.firstname + ' ' + staff.lastname}</option>)}
       </select>
     </div>
     <div>
       <label>Réalisateur</label>
-      <select multiple={false}>
-        <option>Sélectionner une personne</option>
-        {staffs.map( staff => <option>{staff.firstname + ' ' + staff.lastname}</option>)}
+      <select multiple={false} onChange={e => setRealisator(e.target.value)}>
+        <option value="" defaultValue disabled>Sélectionner une personne</option>
+        {staffs.map( staff => <option value={staff._id}>{staff.firstname + ' ' + staff.lastname}</option>)}
       </select>
     </div>
     <input type="submit" value="Send" onClick={handleSubmit}/>
