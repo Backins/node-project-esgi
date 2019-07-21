@@ -72,7 +72,7 @@ const NavBar = () => {
         <nav>
           <ul className={classes.menu}>
             <li className={classes.item}>
-              <NavLink className={classes.itemLink} to="/" activeClassName={classes.itemLinkActive}>Home</NavLink>
+              <NavLink className={classes.itemLink} exact to="/" activeClassName={classes.itemLinkActive}>Home</NavLink>
             </li>
             <li className={classes.item}><NavLink className={classes.itemLink} to="/search" activeClassName={classes.itemLinkActive}>Search</NavLink></li>
             {
