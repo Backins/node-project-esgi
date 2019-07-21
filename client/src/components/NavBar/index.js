@@ -4,7 +4,6 @@ import Router from '../Router';
 import { AuthContext } from "../Auth/AuthProvider";
 import Logout from '../Logout';
 import { makeStyles } from '@material-ui/core/styles';
-import { flexbox } from '@material-ui/system';
 
 const useStyles = makeStyles(theme => ({
   '@global': {

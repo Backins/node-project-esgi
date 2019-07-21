@@ -61,7 +61,7 @@ const Login = (props) => {
         <div className={classes.formGroupButton}>
           <input className={classes.button} type="submit" value="Sign in" />
         </div>
-        { errors.connection ? <label>{errors.connection}</label> : <></>}
+        { errors.connection ? <label className={classes.errors}>{errors.connection}</label> : <></>}
       </form>
     </div>
   );

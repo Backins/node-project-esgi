@@ -69,10 +69,14 @@ export const formStyle = makeStyles(theme => ({
     }
   },
   errors: {
+    display: 'block',
     borderLeft: '5px solid #c0392b',
     color: '#c0392b',
     fontSize: '1.1rem',
-    padding: '.5rem 1rem'
+    padding: '.5rem 1rem',
+    '&:not(:first-child)': {
+      marginTop: '1rem'
+    }
   }
 }));
 
