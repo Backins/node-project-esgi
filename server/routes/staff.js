@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Staff  = require('../models/staff');
 
-
-
 router.get('/', (req, res) => {
   if(req.query.q){
     req.query.$text = { $search : req.query.q } ;
@@ -33,10 +31,6 @@ router.get('/:id', (req, res) => {
         }
       }
     );
-});
-
-router.get('/search', (req, res) => {
-  Staff.find(req.query).then(data => res.json(data));
 });
 
 router.post('/', (req,res) => {
