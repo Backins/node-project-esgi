@@ -48,6 +48,12 @@ export const formStyle = makeStyles(theme => ({
       backgroundColor: 'rgba(0,0,0,0.01)',
     }
   },
+  formGroupTextarea: {
+    minHeight: '50px',
+    maxHeight: '150px',
+    minWidth: '100%',
+    maxWidth: '100%',
+  },
   formGroupButton: {
     marginTop: '2rem'
   },

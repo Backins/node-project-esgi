@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { addStaff } from "../../api/staff";
+import { formStyle} from '../SignUp/index';
 
 const StaffAdd = props => {
 
@@ -9,6 +10,8 @@ const StaffAdd = props => {
   const [biography, setBiography] = useState('');
   const [birthday, setBirthday] = useState('');
   const [errors, setErrors] = useState([]);
+
+  const classes = formStyle();
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -47,35 +50,50 @@ const StaffAdd = props => {
   };
 
 
-  return <form>
-    {errors.map(error => (
-        <div key={error}>
-          {error}
+  return (
+    <div className={classes.container}>
+      <form className={classes.form}>
+        {errors.map(error => (
+            <div key={error} className={classes.errors}>
+              {error}
+            </div>
+        ))}
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Firstname</span>
+            <input className={classes.formGroupInput} required={true} type="text" value={firstname} onChange={e => setFirstname(e.target.value)}/>
+          </label>
         </div>
-    ))}
-    <div>
-      <label>Firstname</label>
-      <input required={true} type="text" value={firstname} onChange={e => setFirstname(e.target.value)}/>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Lastname</span>
+            <input className={classes.formGroupInput} required={true} type="text" value={lastname} onChange={e => setLastname(e.target.value)}/>
+          </label>
+        </div>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Nationality</span>
+            <input className={classes.formGroupInput}  type="text" value={nationality} onChange={e => setNationality(e.target.value)}/>
+          </label>
+        </div>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Biography</span>
+            <textarea className={classes.formGroupTextarea} type="text" value={biography} onChange={e => setBiography(e.target.value)}/>
+          </label>
+        </div>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Birthday</span>
+            <input className={classes.formGroupInput} type="date" value={birthday} onChange={e => setBirthday(e.target.value)}/>
+          </label>
+        </div>
+        <div className={classes.formGroupButton}>
+          <input type="submit" value="Send" onClick={handleSubmit} className={classes.button}/>
+        </div>
+      </form>
     </div>
-    <div>
-      <label>Lastname</label>
-      <input required={true} type="text" value={lastname} onChange={e => setLastname(e.target.value)}/>
-    </div>
-    <div>
-      <label>Nationality</label>
-      <input  type="text" value={nationality} onChange={e => setNationality(e.target.value)}/>
-    </div>
-    <div>
-      <label>Biography</label>
-      <textarea type="text" value={biography} onChange={e => setBiography(e.target.value)}/>
-    </div>
-    <div>
-      <label>Birthday</label>
-      <input type="date" value={birthday} onChange={e => setBirthday(e.target.value)}/>
-    </div>
-    <input type="submit" value="Send" onClick={handleSubmit}/>
-  </form>
-
+  );
 
 };
 
