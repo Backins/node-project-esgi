@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { AuthContext } from "../Auth/AuthProvider";
 import { Redirect } from 'react-router-dom';
 
-const Logout = () => {
+const Logout = (classname) => {
   let { setUser } = useContext(AuthContext);
 
   const onClick = () => {
@@ -10,7 +10,7 @@ const Logout = () => {
     setUser(null);
     return <Redirect to='/'/>
   };
-  return ( <a href="#" onClick={() => onClick()}>Logout</a> );
+  return ( <a href="#" className={classname.classname} onClick={() => onClick()}>Logout</a> );
 };
 
 export default Logout;
