@@ -5,7 +5,7 @@ import { SearchMovies } from '../../api/movie';
 const Search = () => {
   const [searchTerm,setSearchTerm] = useState('');
   const [displayStaff,setDisplayStaff] = useState(true);
-  const [displayMovie, setDisplayMovie] = useState(true);
+  const [displayMovie, setDisplayMovie] = useState(false);
   const [staffs,setStaffs] = useState([]);
   const [movies,setMovies] = useState([]);
 
@@ -22,7 +22,7 @@ const Search = () => {
     </div>
 
     <div>
-      <span onClick={() => setDisplayStaff(!displayStaff)}><strong>Staffs</strong></span>
+      <span onClick={() => setDisplayStaff(true)}><strong>Staffs</strong></span>
     </div>
     {
       displayStaff ?
@@ -58,9 +58,9 @@ const Search = () => {
         </div>
     }
     <div>
-    <span onClick={() => setDisplayMovie(!displayMovie)}><strong>Movie</strong></span>
+    <span onClick={() => {setDisplayStaff(false)}}><strong>Movie</strong></span>
     </div>
-        { displayMovie ? 
+        { !displayStaff ? 
           <div>
           {
             movies.map(movie =>
