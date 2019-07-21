@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { addMovie, getMovies } from "../../api/movie";
 import { getStaffs } from "../../api/staff";
+import { formStyle} from '../SignUp/index';
 
 const MovieAdd = props => {
 
@@ -12,6 +13,8 @@ const MovieAdd = props => {
   const [errors, setErrors] = useState([]);
   const ref = useRef( { mounted: false });
   const [staffs, setStaffs] = useState([]);
+
+  const classes = formStyle();
 
   useEffect(() => {
     if(!ref.current.mounted) {
@@ -33,10 +36,10 @@ const MovieAdd = props => {
     let err = [];
 
     if (!title) {
-      err.push('Invalid firstname');
+      err.push('Invalid title');
     }
     if (!category) {
-      err.push('Invalid lastname');
+      err.push('Invalid category');
     }
     if (err.length){
       setErrors(err)
@@ -77,39 +80,55 @@ const MovieAdd = props => {
   };
 
 
-  return <form>
-    {errors.map(error => (
-        <div key={error}>
-          {error}
+  return (
+    <div className={classes.container}>
+      <form className={classes.form}>
+        {errors.map(error => (
+            <div key={error} className={classes.errors}>
+              {error}
+            </div>
+        ))}
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Title</span>
+            <input className={classes.formGroupInput} required={true} type="text" value={title} onChange={e => setTitle(e.target.value)}/>
+          </label>
         </div>
-    ))}
-    <div>
-      <label>Title</label>
-      <input required={true} type="text" value={title} onChange={e => setTitle(e.target.value)}/>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Year</span>
+            <input className={classes.formGroupInput} required={true} type="number" value={year} onChange={e => setYear(e.target.value)}/>
+          </label>
+        </div>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Category</span>
+            <input className={classes.formGroupInput} required={true} type="text" value={category} onChange={e => setCategory(e.target.value)}/>
+          </label>
+        </div>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Acteurs</span>
+            <select multiple={true} onChange={e => handleChangeActors(e)}>
+              {staffs.map( staff => <option value={staff._id}>{staff.firstname + ' ' + staff.lastname}</option>)}
+            </select>
+          </label>
+        </div>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Réalisateur</span>
+            <select className={classes.formGroupInput} multiple={false} onChange={e => setRealisator(e.target.value)}>
+              <option value="" defaultValue disabled>Sélectionner une personne</option>
+              {staffs.map( staff => <option value={staff._id}>{staff.firstname + ' ' + staff.lastname}</option>)}
+            </select>
+          </label>
+        </div>
+        <div className={classes.formGroupButton}>
+          <input type="submit" value="Add movie" onClick={handleSubmit} className={classes.button}/>
+        </div>
+      </form>
     </div>
-    <div>
-      <label>Year</label>
-      <input required={true} type="number" value={year} onChange={e => setYear(e.target.value)}/>
-    </div>
-    <div>
-      <label>Category</label>
-      <input  required={true} type="text" value={category} onChange={e => setCategory(e.target.value)}/>
-    </div>
-    <div>
-      <label>Acteurs</label>
-      <select multiple={true} onChange={e => handleChangeActors(e)}>
-        {staffs.map( staff => <option value={staff._id}>{staff.firstname + ' ' + staff.lastname}</option>)}
-      </select>
-    </div>
-    <div>
-      <label>Réalisateur</label>
-      <select multiple={false} onChange={e => setRealisator(e.target.value)}>
-        <option value="" defaultValue disabled>Sélectionner une personne</option>
-        {staffs.map( staff => <option value={staff._id}>{staff.firstname + ' ' + staff.lastname}</option>)}
-      </select>
-    </div>
-    <input type="submit" value="Send" onClick={handleSubmit}/>
-  </form>
+  );
 
 
 };

@@ -2,12 +2,15 @@ import React, {useContext,useState} from 'react';
 import { AuthContext } from "../Auth/AuthProvider";
 import { login } from '../../api/authentication';
 import decode from "jwt-decode";
+import { formStyle} from '../SignUp/index';
 
 const Login = (props) => {
   let { setUser } = useContext(AuthContext);
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   let [errors,setErrors] = useState({'email' : '','connection':''});
+
+  const classes = formStyle();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -40,19 +43,27 @@ const Login = (props) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email:
-        <input id="email" type="email" value={email} onChange={handleChange} />
-        { errors.email ? <label>{errors.email}</label> : <></>}
-      </label>
-      <label>
-        Password:
-        <input id="password" type="password" value={password} onChange={handleChange} />
-      </label>
-      <input type="submit" value="Submit" />
-      { errors.connection ? <label>{errors.connection}</label> : <></>}
-    </form>
+    <div className={classes.container}>
+      <form onSubmit={handleSubmit} className={classes.form}>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Email:</span>
+            <input className={classes.formGroupInput} id="email" type="email" value={email} onChange={handleChange} />
+            { errors.email ? <label>{errors.email}</label> : <></>}
+          </label>
+        </div>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>Password:</span>
+            <input className={classes.formGroupInput} id="password" type="password" value={password} onChange={handleChange} />
+          </label>
+        </div>
+        <div className={classes.formGroupButton}>
+          <input className={classes.button} type="submit" value="Sign in" />
+        </div>
+        { errors.connection ? <label className={classes.errors}>{errors.connection}</label> : <></>}
+      </form>
+    </div>
   );
 };
 
