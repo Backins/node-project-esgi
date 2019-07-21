@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const Movie  = require('../models/movie')
+const Movie  = require('../models/movie');
 
 router.get('/', (req, res) => {
-  Movie.find().then(data => res.json(data));
+  if(req.query.q){
+    req.query.$text = { $search : req.query.q } ;
+    delete req.query.q;
+  }
+  Movie.find(req.query,{ score : { $meta : 'textScore' } }).sort({ score : { $meta : 'textScore' } }).then(data => res.json(data));
 });
 
 router.post('/', (req,res) => {

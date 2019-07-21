@@ -26,6 +26,8 @@ const MovieSchema = new mongoose.Schema({
   }
 });
 
+MovieSchema.index({ title: 'text', createdAt: 'text', year: 'text', category: 'text', realisator: 'text' });
+
 MovieSchema.pre('save', function (next) {
   console.log('Saving ...' + this.title);
   this.createdAt = Date.now();
