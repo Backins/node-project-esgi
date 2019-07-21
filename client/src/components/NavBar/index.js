@@ -11,13 +11,20 @@ const useStyles = makeStyles(theme => ({
     '*': {
       padding: '0',
       margin: '0'
+    },
+    html: {
+      height: '100%'
+    },
+    body: {
+      height: '100%'
     }
   },
   menu: {
     listStyle: 'none',
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: '#f1c40f'
+    backgroundColor: '#f1c40f',
+    fontSize: '1.2rem'
   },
   item: {
     display: 'flex'
