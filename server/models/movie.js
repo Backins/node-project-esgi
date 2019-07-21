@@ -1,5 +1,6 @@
 const db = require('../lib/db');
 const mongoose = require('mongoose');
+const mongoosastic = require('mongoosastic');
 
 const MovieSchema = new mongoose.Schema({
   title: String,
@@ -36,5 +37,13 @@ MovieSchema.pre('save', function (next) {
 MovieSchema.post('save', function (doc) {
   console.log(doc.title + ' is saved');
 });
+
+MovieSchema.plugin(mongoosastic);
+
+MovieSchema.plugin(mongoosastic, {
+  "host": "elasticsearch",
+  "port": 9200
+});
+
 
 module.exports = db.model('Movie', MovieSchema); // movies
