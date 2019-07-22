@@ -112,7 +112,7 @@ const SignUp = (props) => {
     setErrors(err);
     if(err.length === 0){
       register({firstname,lastname,email,password}).then( response => {
-        if(response){
+        if(!response['_id']){
           const serverError  = Object.keys(response).map(key => response[key].message);
           err = [...err,...serverError];
         }
