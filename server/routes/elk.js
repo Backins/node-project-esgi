@@ -3,6 +3,7 @@ const router = express.Router();
 const Staff  = require('../models/staff');
 const Movie  = require('../models/movie');
 const axios = require('axios');
+const mockStaff = require('../mocks');
 
 router.get('/staffs', (req, res) => {
   Staff.search(
@@ -25,14 +26,15 @@ router.get('/movies', (req, res) => {
 });
 
 router.get('/population', async (req, res) => {
-  // var page = 1;
+
+
+  await Promise.all([mockStaff.map(staff => new Staff(staff).save())]);
+
   const staffs = await Staff.find();
-  // console.log(test)
-  // return  0;
+
   for (let page = 1; page < 15 ; page++) {
 
     const { data } = await axios.get(`https://api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&&api_key=f1e8fb7a9ad3c8a82af4f5a6fe5f7ddf&page=${page}`)
-    // console.log('data',data.result)
 
     const genres = ['Action',
       'Adventure',
@@ -57,7 +59,7 @@ router.get('/population', async (req, res) => {
       'Thriller',
       'Urban',
       'Western'];
-    // console.log('hello',data.results)
+
     await Promise.all([ data.results.map(movie => {
       var category = [];
       var actors = [];
@@ -69,10 +71,8 @@ router.get('/population', async (req, res) => {
 
 
       limit = Math.random() * 10 + 1;
-      // console.log('staffs',staffs[0])
       for (let i = 0; i <   limit ; i++) {
         const obj = staffs[Math.floor(Math.random() * staffs.length - 1) + 0 ];
-        // console.log('obj',obj)
         if(obj) actors = [...actors, obj.toObject()['_id']];
       }
 
@@ -96,8 +96,6 @@ router.get('/population', async (req, res) => {
     })])
   }
 
-
-  // movie.save().then();
 });
 
 module.exports = router;
