@@ -5,13 +5,13 @@ const mongoosastic = require('mongoosastic');
 const MovieSchema = new mongoose.Schema({
   title: String,
   createdAt: Date,
+  posterPath: String,
   year: {
-    type: Number,
+    type: String,
     min: 1896
   },
   category: {
-    type: String,
-    enum: ['Drama', 'SF', 'Comedy', 'Action']
+    type: Array,
   },
   //actors: [{
     //staff: {
