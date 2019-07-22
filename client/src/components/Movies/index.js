@@ -41,8 +41,11 @@ const Movies = () => {
     if(!ref.current.mounted) {
       getMovies().then((response) => {
         setMovies(response);
+      }).catch((e) => {
+        setMovies([{}]);
+        console.log(e);
       });
-
+      console.log(movies);
       ref.current = { mounted: true };
     }
   });
@@ -53,7 +56,7 @@ const Movies = () => {
       <section className={classes.container}>
         <h1 className={classes.title}>Movie Gallery</h1>
         <ul className={classes.list}>
-          {movies.map(movie => <Movie movie={movie} classes={classes}></Movie>)}
+          {movies.map(movie => <Movie movie={movie}></Movie>)}
         </ul>
       </section>
     </main>
