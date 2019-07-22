@@ -7,6 +7,7 @@ import StaffAdd from "../StaffAdd";
 import PrivateRoute from '../../helpers/private-route';
 import Search from "../Search";
 import MovieAdd from '../MovieAdd';
+import ViewMovie from '../ViewMovie';
 
 const Router = () => (
   <>
@@ -14,6 +15,7 @@ const Router = () => (
     <Route path="/login" exact component={Login} />
     <Route path="/signup" exact component={SignUp} />
     <Route path="/search" exact component={Search} />
+    <Route path="/movie/:id" exact component={ViewMovie} />
     <PrivateRoute path="/create/staff" exact component={StaffAdd} />
     <PrivateRoute path="/create/movie" exact component={MovieAdd} />
   </>
