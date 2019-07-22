@@ -3,6 +3,7 @@ const verifyToken = require('../auth').verifyToken;
 const verify = (req, res, next) => {
   if(req.path === '/login_check') return next();
   if(req.path === '/register') return next();
+  if(req.path === '/movies'  && req.method === 'GET') return next();
   if(req.path.match(/\/staffs*/g) && req.method === 'GET') return next();
   if(req.path.match(/\/elk*/g)) return next();
 

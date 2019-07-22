@@ -81,6 +81,7 @@ const NavBar = () => {
               <NavLink className={classes.itemLink} exact to="/" activeClassName={classes.itemLinkActive}>Home</NavLink>
             </li>
             <li className={classes.item}><NavLink className={classes.itemLink} to="/search" activeClassName={classes.itemLinkActive}>Search</NavLink></li>
+            <li className={classes.item}><NavLink className={classes.itemLink} to="/movies" activeClassName={classes.itemLinkActive}>Movies</NavLink></li>
             {
               user ? <>
                   <li className={classes.item}><NavLink className={classes.itemLink} to="/create/staff" activeClassName={classes.itemLinkActive}>Add staff</NavLink></li>
