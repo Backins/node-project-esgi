@@ -64,3 +64,8 @@ services:
       - /usr/share/elasticsearch/data
     ports:
       - 9200:9200
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.7.2
+    ports:
+      - "5601:5601"
