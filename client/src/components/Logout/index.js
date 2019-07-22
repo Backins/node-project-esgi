@@ -10,7 +10,7 @@ const Logout = (classname) => {
     setUser(null);
     return <Redirect to='/'/>
   };
-  return ( <a href="#" className={classname.classname} onClick={() => onClick()}>Logout</a> );
+  return ( <button className={classname.classname} onClick={() => onClick()}>Logout</button>)
 };
 
 export default Logout;

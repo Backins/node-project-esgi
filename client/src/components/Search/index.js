@@ -18,7 +18,7 @@ const Search = () => {
     <h1>Search</h1>
     <div>
       <input value={searchTerm} type="text" onChange={e => setSearchTerm(e.target.value)}/>
-      <button onClick={submitSearch}>🔍</button>
+      <button onClick={submitSearch}><span role="img" aria-label="search">🔍</span></button>
     </div>
 
     <div>
