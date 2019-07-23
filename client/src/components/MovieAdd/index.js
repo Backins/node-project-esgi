@@ -8,6 +8,7 @@ const MovieAdd = props => {
   const [title, setTitle ] = useState('');
   const [year, setYear] = useState('');
   const [category, setCategory] = useState('');
+  const [urlPoster, setUrlPoster] = useState('');
   const [actors, setActors] = useState('');
   const [realisator, setRealisator] = useState('');
   const [errors, setErrors] = useState([]);
@@ -20,11 +21,6 @@ const MovieAdd = props => {
     if(!ref.current.mounted) {
       getStaffs().then((response) => {
         setStaffs(response);
-      });
-
-
-      getMovies().then((response) => {
-        console.log(response);
       });
 
       ref.current = { mounted: true };
@@ -49,12 +45,13 @@ const MovieAdd = props => {
       addMovie({
         title,
         year,
+        urlPoster,
         category,
         actors,
         realisator
       }).then(response =>
       {
-          if (response.id) {
+          if (response._id) {
             props.history.push(`/`);
           } else {
             Object.keys(response).forEach(key => {
@@ -92,6 +89,12 @@ const MovieAdd = props => {
           <label className={classes.formGroupLabel}>
             <span className={classes.formGroupSpan}>Title</span>
             <input className={classes.formGroupInput} required={true} type="text" value={title} onChange={e => setTitle(e.target.value)}/>
+          </label>
+        </div>
+        <div className={classes.formGroup}>
+          <label className={classes.formGroupLabel}>
+            <span className={classes.formGroupSpan}>URL du poster</span>
+            <input className={classes.formGroupInput} required={true} type="text" value={urlPoster} onChange={e => setUrlPoster(e.target.value)}/>
           </label>
         </div>
         <div className={classes.formGroup}>

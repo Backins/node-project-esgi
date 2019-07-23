@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req,res) => {
+  console.log(req);
   const movie = new Movie(req.body);
 
   movie.save().then(data => res.status(201).json(data)
@@ -22,6 +23,14 @@ router.post('/', (req,res) => {
       }
     }
   ))
+});
+
+router.get('/:id', (req,res) => {
+  Movie.findById(req.params.id, function(err, movie) {
+  if (err)
+      res.send(err);
+  res.json(movie);
+  });
 });
 
 module.exports = router;

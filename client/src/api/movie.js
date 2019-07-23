@@ -18,15 +18,12 @@ export const getMovies = async (params = {}) => {
   }
 };
 
-export const getMovieById = async (params = {}) => {
+export const getMovieById = async (id = {}) => {
   try {
-    const { data } = await axios.get('/movie/:id');
-    console.log("ok");
-    console.log(data);
+    const { data } = await axios.get(`/movies/${id}`);
+    console.log('movie/api : ', id);
     return data;
   } catch (e) {
-    console.log("ko");
-    console.log(e.response.data);
     return e.response.data;
   }
 };

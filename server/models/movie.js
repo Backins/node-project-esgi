@@ -6,6 +6,7 @@ const MovieSchema = new mongoose.Schema({
   title: String,
   createdAt: Date,
   posterPath: String,
+  urlPoster: String,
   year: {
     type: String,
     min: 1896

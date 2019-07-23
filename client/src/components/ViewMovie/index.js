@@ -35,8 +35,9 @@ const ViewMovie = props => {
   const classes = movieByIdStyle()
 
   useEffect(() => {
+    const idMovie = props.match.params.id;
     if (!ref.current.mounted) {
-      getMovieById().then(response => {
+      getMovieById(idMovie).then(response => {
         setMovieById(response)
         console.log(response)
       })
