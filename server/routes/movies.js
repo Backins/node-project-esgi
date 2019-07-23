@@ -25,6 +25,20 @@ router.post('/', (req,res) => {
   ))
 });
 
+router.delete('/:id', (req, res) => {
+  Movie.findOneAndRemove({field: 'newValue'})
+    .then(data => res.status(200).json(data))
+    .catch(error => {
+        if(error.name === "CastError"){
+          res.status(400).json(error.errors);
+        } else {
+          res.sendStatus(500);
+        }
+      }
+    );
+
+});
+
 router.get('/:id', (req,res) => {
   Movie.findById(req.params.id, function(err, movie) {
   if (err)
