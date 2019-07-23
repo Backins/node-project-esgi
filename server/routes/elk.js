@@ -83,9 +83,10 @@ router.get('/population', async (req, res) => {
         if(tmp) realisator = tmp.toObject()['_id'];
       }
 
+ 
       const dataMovie = {
         title: movie.title,
-        posterPath: 'https://image.tmdb.org/t/p/w500_and_h282_face' + movie.posterPath,
+        posterPath: 'https://image.tmdb.org/t/p/w500_and_h282_face' + movie['poster_path'],
         year: movie['release_date'],
         category,
         actors,
