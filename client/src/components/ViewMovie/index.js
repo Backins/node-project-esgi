@@ -3,18 +3,66 @@ import { getMovieById } from '../../api/movie';
 import { getStaffById } from '../../api/staff';
 import { makeStyles } from '@material-ui/core/styles';
 import validUrl from 'valid-url'; 
+import createTypography from '@material-ui/core/styles/createTypography';
 
 const movieByIdStyle = makeStyles(theme => ({
-  bgImg: {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '80%',
+    margin: 'auto',
+    justifyContent: 'center',
+    marginTop: '5rem',
+  },
+  movieContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'top'
+  },
+  posterContainer: {
+    width: '40%',
+    padding: '0 1rem',
+  },
+  posterImg: {
     width: '100%',
-    textAlign: 'center'
+    height: '100%',
+    objectFit: 'cover'
+  },
+  movieList: {
+    display: 'flex',
+    width: '55%',
+    flexDirection: 'column',
+  },
+  movieTitle: {
+    marginBottom: '1.5rem'
+  },
+  movieYear: {
+    marginBottom: '1rem',
+    fontSize: '1.1rem',
+  },
+  categorysList: {
+    listStyle: 'none',
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  categorysItem: {
+    backgroundColor: '#f1c40f',
+    color: 'black',
+    padding: '.3rem',
+    fontSize: '.9rem',
+    fontWeight: '600'
+  },
+  staffs: {
+    marginTop: '2rem'
   },
 }))
 
 const ViewMovie = props => {
-  const [poster, setPoster] = useState('https://www.tellerreport.com/images/no-image.png')
+  const [poster, setPoster] = useState('https://www.tellerreport.com/images/no-image.png');
+  const [altPoster, setAltPoster] = useState('No poster found for this movie');
   const [movie, setMovie] = useState({});
   const [actors, setActors] = useState([]);
+  const [categorys, setCategorys] = useState([]);
   const [realisator, setRealisator] = useState([]);
   const ref = useRef({ mounted: false });
 
@@ -26,6 +74,7 @@ const ViewMovie = props => {
       getMovieById(idMovie).then(response => {
         const movie = response;
         setMovie(movie);
+        setCategorys(movie.category);
         if(movie.actors.length > 0 && movie.actors[0] !== "") {
           const actors = movie.actors;
           let arrayActors = [];
@@ -45,6 +94,7 @@ const ViewMovie = props => {
         }
         if(movie.urlPoster !== undefined && validUrl.isHttpUri(movie.urlPoster)){
           setPoster(movie.urlPoster);
+          setAltPoster(`${movie.title}'s poster`);
         }
       })
       ref.current = { mounted: true }
@@ -52,8 +102,23 @@ const ViewMovie = props => {
   })
 
   return (
-    <div>
-      {actors.map(actor => <div>{actor.firstname + ' ' + actor.lastname}</div>)}
+    <div className={classes.container}>
+      <div className={classes.movieContainer}>
+        <div className={classes.posterContainer}>
+          <img src={poster} alt={altPoster} className={classes.posterImg}/>
+        </div>
+        <div className={classes.movieList}>
+          <h1 className={classes.movieTitle}>{movie.title}</h1>
+          <p className={classes.movieYear}>Année de sortie : {movie.year}</p>
+          <ul className={classes.categorysList}>
+            {categorys.map(category => <li className={classes.categorysItem}>{category}</li>)}
+          </ul>
+        </div>
+      </div>
+      <div className={classes.staffs}>
+        <h2>Acteurs et Réalisateurs</h2>
+        {actors.map(actor => <div>{actor.firstname + ' ' + actor.lastname}</div>)}
+      </div>
     </div>
   )
 }
