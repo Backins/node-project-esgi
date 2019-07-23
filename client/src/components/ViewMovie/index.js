@@ -128,9 +128,13 @@ const ViewMovie = props => {
       </div>
       <div className={classes.staffs}>
         <h2>Realisator</h2>
-        <div className={classes.staffsList}>
-          <BlocStaff staff={realisator}></BlocStaff>
-        </div>
+        {realisator.firstname ? (
+          <div className={classes.staffsList}>
+            <BlocStaff staff={realisator}></BlocStaff>
+          </div>
+        ):(
+          <p>No realisator found</p>
+        )}
       </div>
     </div>
   )
