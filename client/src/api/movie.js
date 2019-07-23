@@ -21,7 +21,6 @@ export const getMovies = async (params = {}) => {
 export const getMovieById = async (id = {}) => {
   try {
     const { data } = await axios.get(`/movies/${id}`);
-    console.log('movie/api : ', id);
     return data;
   } catch (e) {
     return e.response.data;
