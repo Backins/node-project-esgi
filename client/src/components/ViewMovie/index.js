@@ -4,6 +4,7 @@ import { getStaffById } from '../../api/staff';
 import { makeStyles } from '@material-ui/core/styles';
 import validUrl from 'valid-url'; 
 import createTypography from '@material-ui/core/styles/createTypography';
+import BlocStaff from '../BlocStaff/index';
 
 const movieByIdStyle = makeStyles(theme => ({
   container: {
@@ -53,7 +54,11 @@ const movieByIdStyle = makeStyles(theme => ({
     fontWeight: '600'
   },
   staffs: {
-    marginTop: '2rem'
+    marginTop: '.5rem',
+  },
+  staffsList: {
+    margin: '2rem 0',
+    display: 'flex',
   },
 }))
 
@@ -66,7 +71,7 @@ const ViewMovie = props => {
   const [realisator, setRealisator] = useState([]);
   const ref = useRef({ mounted: false });
 
-  const classes = movieByIdStyle()
+  const classes = movieByIdStyle();
 
   useEffect(() => {
     const idMovie = props.match.params.id;
@@ -116,8 +121,16 @@ const ViewMovie = props => {
         </div>
       </div>
       <div className={classes.staffs}>
-        <h2>Acteurs et Réalisateurs</h2>
-        {actors.map(actor => <div>{actor.firstname + ' ' + actor.lastname}</div>)}
+        <h2>Actors</h2>
+        <div className={classes.staffsList}>
+          {actors.map(actor => <BlocStaff staff={actor}></BlocStaff>)}
+        </div>
+      </div>
+      <div className={classes.staffs}>
+        <h2>Realisator</h2>
+        <div className={classes.staffsList}>
+          <BlocStaff staff={realisator}></BlocStaff>
+        </div>
       </div>
     </div>
   )
