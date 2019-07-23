@@ -11,9 +11,7 @@ const MovieSchema = new mongoose.Schema({
     type: String,
     min: 1896
   },
-  category: {
-    type: Array,
-  },
+  category: [String],
   //actors: [{
     //staff: {
       //type: mongoose.Schema.Types.ObjectId,
