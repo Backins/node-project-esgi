@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Staff.findById(req.params.id,)
+  Staff.findById(req.params.id)
     .then(data => res.status(200).json(data))
     .catch(error => {
         if(error.name === "CastError"){
@@ -31,6 +31,20 @@ router.get('/:id', (req, res) => {
         }
       }
     );
+});
+
+router.delete('/:id', (req, res) => {
+  Staff.findOneAndRemove({field: 'newValue'})
+    .then(data => res.status(200).json(data))
+    .catch(error => {
+        if(error.name === "CastError"){
+          res.status(400).json(error.errors);
+        } else {
+          res.sendStatus(500);
+        }
+      }
+    );
+
 });
 
 router.post('/', (req,res) => {
