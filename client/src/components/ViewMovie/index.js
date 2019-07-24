@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { getMovieById } from '../../api/movie';
 import { getStaffById } from '../../api/staff';
 import { makeStyles } from '@material-ui/core/styles';
-import validUrl from 'valid-url'; 
 import createTypography from '@material-ui/core/styles/createTypography';
 import BlocStaff from '../BlocStaff/index';
 
@@ -97,15 +96,20 @@ const ViewMovie = props => {
             setRealisator(response);
           })
         }
-        console.log(validUrl.isHttpUri(movie.urlPoster));
-        if(movie.urlPoster !== undefined && validUrl.isHttpUri(movie.urlPoster)){
+      
+        console.log(checkURL(movie.urlPoster));
+        if(movie.urlPoster !== undefined && checkURL(movie.urlPoster)){
           setPoster(movie.urlPoster);
           setAltPoster(`${movie.title}'s poster`);
         }
       })
       ref.current = { mounted: true }
     }
-  })
+  });
+
+  const checkURL = url => {
+    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+  }
 
   return (
     <div className={classes.container}>
