@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
+  firstname: String,
+  lastname: String,
   email: {
     type: String,
     required: true,
@@ -29,6 +29,7 @@ UserSchema.pre('save', function (next) {
 UserSchema.statics.login = function (email, password) {
   return new Promise((resolve, reject) => {
     User.findOne({ email }).then(user => {
+      console.log('login',user)
       if (!user) {
         return reject("User not found");
       } else {
