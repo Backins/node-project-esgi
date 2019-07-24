@@ -8,7 +8,7 @@ const MovieAdd = props => {
   const [title, setTitle ] = useState('');
   const [year, setYear] = useState('');
   const [category, setCategory] = useState('');
-  const [urlPoster, setUrlPoster] = useState('');
+  const [posterPath, setPosterPath] = useState('');
   const [actors, setActors] = useState('');
   const [realisator, setRealisator] = useState('');
   const [errors, setErrors] = useState([]);
@@ -45,7 +45,7 @@ const MovieAdd = props => {
       addMovie({
         title,
         year,
-        urlPoster,
+        posterPath,
         category,
         actors,
         realisator
@@ -94,7 +94,7 @@ const MovieAdd = props => {
         <div className={classes.formGroup}>
           <label className={classes.formGroupLabel}>
             <span className={classes.formGroupSpan}>URL du poster</span>
-            <input className={classes.formGroupInput} required={true} type="text" value={urlPoster} onChange={e => setUrlPoster(e.target.value)}/>
+            <input className={classes.formGroupInput} required={true} type="text" value={posterPath} onChange={e => setPosterPath(e.target.value)}/>
           </label>
         </div>
         <div className={classes.formGroup}>
