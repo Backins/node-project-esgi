@@ -96,11 +96,12 @@ const ViewMovie = props => {
             setRealisator(response);
           })
         }
-      
-        console.log(checkURL(movie.urlPoster));
-        if(movie.urlPoster !== undefined && checkURL(movie.urlPoster)){
-          setPoster(movie.urlPoster);
-          setAltPoster(`${movie.title}'s poster`);
+    
+        if(movie.urlPoster !== undefined){
+          if(checkURL(movie.urlPoster)) {
+            setPoster(movie.urlPoster);
+            setAltPoster(`${movie.title}'s poster`);
+          }
         }
       })
       ref.current = { mounted: true }
