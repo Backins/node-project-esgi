@@ -36,7 +36,7 @@ const StaffAdd = props => {
         birthday,
       }).then(response =>
       {
-          if (response.id) {
+          if (response._id) {
             props.history.push(`/`);
           } else {
             Object.keys(response).forEach(key => {
