@@ -1,88 +1,140 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { getMovieById } from '../../api/movie'
-import { makeStyles } from '@material-ui/core/styles'
+import { getMovieById } from '../../api/movie';
+import { getStaffById } from '../../api/staff';
+import { makeStyles } from '@material-ui/core/styles';
+import validUrl from 'valid-url'; 
+import createTypography from '@material-ui/core/styles/createTypography';
+import BlocStaff from '../BlocStaff/index';
 
 const movieByIdStyle = makeStyles(theme => ({
-  bgImg: {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '80%',
+    margin: 'auto',
+    justifyContent: 'center',
+    marginTop: '5rem',
+  },
+  movieContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'top'
+  },
+  posterContainer: {
+    width: '40%',
+    padding: '0 1rem',
+  },
+  posterImg: {
     width: '100%',
-    textAlign: 'center'
+    height: '100%',
+    objectFit: 'cover'
   },
-
-  alignText: {
-    textAlign: 'center'
+  movieList: {
+    display: 'flex',
+    width: '55%',
+    flexDirection: 'column',
   },
-
-  elemItems: {
-    margin: '20px 0',
+  movieTitle: {
+    marginBottom: '1.5rem'
   },
-
-  strong: {
-    color: '#f1c40f'
-  }
+  movieYear: {
+    marginBottom: '1rem',
+    fontSize: '1.1rem',
+  },
+  categorysList: {
+    listStyle: 'none',
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  categorysItem: {
+    backgroundColor: '#f1c40f',
+    color: 'black',
+    padding: '.3rem',
+    fontSize: '.9rem',
+    fontWeight: '600'
+  },
+  staffs: {
+    marginTop: '.5rem',
+  },
+  staffsList: {
+    margin: '2rem 0',
+    display: 'flex',
+  },
 }))
 
 const ViewMovie = props => {
-  const [title, setTitle] = useState('Undefined')
-  const [year, setYear] = useState('Undefined')
-  const [category, setCategory] = useState('Undefined')
-  const [actors, setActors] = useState('Undefined')
-  const [realisator, setRealisator] = useState('Undefined')
-  const [img, setImg] = useState('https://www.tellerreport.com/images/no-image.png')
-  const [staffs, setStaffs] = useState([])
-  const [movieById, setMovieById] = useState({})
-  const ref = useRef({ mounted: false })
+  const [poster, setPoster] = useState('https://www.tellerreport.com/images/no-image.png');
+  const [altPoster, setAltPoster] = useState('No poster found for this movie');
+  const [movie, setMovie] = useState({});
+  const [actors, setActors] = useState([]);
+  const [categorys, setCategorys] = useState([]);
+  const [realisator, setRealisator] = useState([]);
+  const ref = useRef({ mounted: false });
 
-  const classes = movieByIdStyle()
+  const classes = movieByIdStyle();
 
   useEffect(() => {
+    const idMovie = props.match.params.id;
     if (!ref.current.mounted) {
-      getMovieById().then(response => {
-        setMovieById(response)
-        console.log(response)
+      getMovieById(idMovie).then(response => {
+        const movie = response;
+        setMovie(movie);
+        setCategorys(movie.category);
+        if(movie.actors.length > 0 && movie.actors[0] !== "") {
+          const actors = movie.actors;
+          let arrayActors = [];
+          actors.map(actor => {
+              getStaffById(actor).then(response => {
+                arrayActors = [...arrayActors, response];
+              }).then(() => {
+                setActors(arrayActors);
+              });
+              
+          });
+        }
+        if(movie.realisator) {
+          getStaffById(movie.realisator).then(response => {
+            setRealisator(response);
+          })
+        }
+        if(movie.urlPoster !== undefined && validUrl.isHttpUri(movie.urlPoster)){
+          setPoster(movie.urlPoster);
+          setAltPoster(`${movie.title}'s poster`);
+        }
       })
       ref.current = { mounted: true }
     }
   })
 
   return (
-    <div>
-      <div className={classes.bgImg}>
-        <img src={img} alt="imageFilm" width="100" height="100"/>
+    <div className={classes.container}>
+      <div className={classes.movieContainer}>
+        <div className={classes.posterContainer}>
+          <img src={poster} alt={altPoster} className={classes.posterImg}/>
+        </div>
+        <div className={classes.movieList}>
+          <h1 className={classes.movieTitle}>{movie.title}</h1>
+          <p className={classes.movieYear}>Année de sortie : {movie.year}</p>
+          <ul className={classes.categorysList}>
+            {categorys.map(category => <li className={classes.categorysItem}>{category}</li>)}
+          </ul>
+        </div>
       </div>
-      <div className={classes.alignText}>
-        <div className={classes.elemItems}>
-          <h1>{title}</h1>
+      <div className={classes.staffs}>
+        <h2>Actors</h2>
+        <div className={classes.staffsList}>
+          {actors.map(actor => <BlocStaff staff={actor}></BlocStaff>)}
         </div>
-        <div className={classes.elemItems}>
-          <p>
-            <strong className={classes.strong}>Année de sortie:</strong>{' '}
-          </p>
-          <span>{year}</span>
-        </div>
-        <div className={classes.elemItems}>
-          <p>
-            <strong className={classes.strong}>Catégorie: </strong>
-          </p>
-          <span>{category}</span>
-        </div>
-        <div className={classes.elemItems}>
-          <p>
-            <strong className={classes.strong}>Acteurs principaux: </strong>
-          </p>
-          <span>{actors}</span>
-        </div>
-        <div className={classes.elemItems}>
-          <p>
-            <strong className={classes.strong}>Réalisateur: </strong>
-          </p>
-          <span>{realisator}</span>
-        </div>
-        <div className={classes.elemItems}>
-          <p>
-            <strong className={classes.strong}>Staff: </strong>
-          </p>
-          <span>{staffs.length === 0 ? "Undefined" : staffs }</span>
-        </div>
+      </div>
+      <div className={classes.staffs}>
+        <h2>Realisator</h2>
+        {realisator.firstname ? (
+          <div className={classes.staffsList}>
+            <BlocStaff staff={realisator}></BlocStaff>
+          </div>
+        ):(
+          <p>No realisator found</p>
+        )}
       </div>
     </div>
   )

@@ -18,6 +18,15 @@ export const getStaffs = async (params = {}) => {
   }
 };
 
+export const getStaffById = async (id = {}) => {
+  try {
+    const { data } = await axios.get(`/staffs/${id}`);
+    return data;
+  } catch (e) {
+    return e.response.data;
+  }
+};
+
 export const SearchStaffs = async (searchTerm) => {
   try {
     const { data } = await axios.get(`/staffs?q=${searchTerm}`);

@@ -51,6 +51,18 @@ const movieStyle = makeStyles(theme => ({
         backgroundColor: '#34495e',
         color: '#ecf0f1',
       },
+      background: {
+        position: 'absolute',
+        top: '0',
+        bottom: '50%',
+        right: '0',
+        left: '0',
+      },
+      image: {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+      },
 }));
 
 const Movie = (props) => {
@@ -65,11 +77,13 @@ const Movie = (props) => {
     return (
         <li className={classes.li}>
             <div className={classes.inner}>
-                <div className={classes.background}></div>
+                <div className={classes.background}>
+                  <img className={classes.image} src={movie.urlPoster} alt={`${movie.title}'s poster`}/>
+                </div>
                 <div className={classes.content}>
                     <h3>{movie.title}</h3>
                     <p>Category : {movie.category}</p>
-                    <NavLink to="/movies" className={classes.link}>Show more</NavLink>
+                    <NavLink to={`/movie/${movie._id}`} className={classes.link}>Show more</NavLink>
                 </div>
             </div>
         </li>

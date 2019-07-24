@@ -6,13 +6,12 @@ const MovieSchema = new mongoose.Schema({
   title: String,
   createdAt: Date,
   posterPath: String,
+  urlPoster: String,
   year: {
     type: String,
     min: 1896
   },
-  category: {
-    type: Array,
-  },
+  category: [String],
   //actors: [{
     //staff: {
       //type: mongoose.Schema.Types.ObjectId,
