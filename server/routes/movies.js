@@ -39,6 +39,10 @@ router.delete('/:id', (req, res) => {
 
 });
 
+router.get('/home', (req, res) => {
+  Movie.find().limit(10).then(data => res.json(data));
+});
+
 router.get('/:id', (req,res) => {
   Movie.findById(req.params.id, function(err, movie) {
   if (err)

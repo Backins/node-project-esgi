@@ -5,6 +5,7 @@ const movieRouter = require('./routes/movies');
 const staffRouter = require('./routes/staff');
 const securityRouter = require('./routes/security');
 const elkRouter = require('./routes/elk');
+const homeRouter = require('./routes/home');
 const bodyparser =  require('body-parser');
 
 const cors = require('cors');
@@ -18,5 +19,6 @@ app.use('/movies',movieRouter);
 app.use('/staffs',staffRouter);
 app.use('/elk',elkRouter);
 app.use('/',securityRouter);
+app.use('/',homeRouter);
 
 app.listen(3000,() => console.log('---> Listening port 3000'));
