@@ -67,18 +67,28 @@ const movieStyle = makeStyles(theme => ({
 
 const Movie = (props) => {
     const [movie, setMovie] = useState([]);
+    const [poster, setPoster] = useState('https://www.tellerreport.com/images/no-image.png');
+    const [altPoster, setAltPoster] = useState('No poster found for this movie');
 
     const classes = movieStyle();
 
     useEffect(() => {
         setMovie(props.movie);
+        if(props.movie.urlPoster !== undefined && checkURL(props.movie.urlPoster)){
+          setPoster(movie.urlPoster);
+          setAltPoster(`${movie.title}'s poster`);
+        }
     });
+
+    const checkURL = url => {
+      return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+    }
 
     return (
         <li className={classes.li}>
             <div className={classes.inner}>
                 <div className={classes.background}>
-                  <img className={classes.image} src={movie.urlPoster} alt={`${movie.title}'s poster`}/>
+                  <img src={poster} alt={altPoster} className={classes.image}/>
                 </div>
                 <div className={classes.content}>
                     <h3>{movie.title}</h3>
