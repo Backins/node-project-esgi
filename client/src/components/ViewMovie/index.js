@@ -97,6 +97,7 @@ const ViewMovie = props => {
             setRealisator(response);
           })
         }
+        console.log(validUrl.isHttpUri(movie.urlPoster));
         if(movie.urlPoster !== undefined && validUrl.isHttpUri(movie.urlPoster)){
           setPoster(movie.urlPoster);
           setAltPoster(`${movie.title}'s poster`);

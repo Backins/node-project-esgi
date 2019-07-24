@@ -8,8 +8,8 @@ router.post('/login_check',  (req, res) => {
   User.login(req.body.email,req.body.password).then(user =>
   {
     const token = createToken({
-      firstName: user.firstName,
-      lastName: user.lastName,
+      firstname: user.firstname,
+      lastname: user.lastname,
     });
       res.status(201).send({token});
   })
