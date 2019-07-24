@@ -74,8 +74,8 @@ const Movie = (props) => {
 
     useEffect(() => {
         setMovie(props.movie);
-        if(props.movie.urlPoster !== undefined&& checkURL(props.movie.urlPoster)){
-          setPoster(movie.urlPoster);
+        if(props.movie.posterPath !== undefined && checkURL(props.movie.posterPath)){
+          setPoster(movie.posterPath);
           setAltPoster(`${movie.title}'s poster`);
         }
     });

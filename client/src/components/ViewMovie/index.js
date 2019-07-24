@@ -58,6 +58,7 @@ const movieByIdStyle = makeStyles(theme => ({
   staffsList: {
     margin: '2rem 0',
     display: 'flex',
+    flexWrap: 'wrap'
   },
 }))
 
@@ -96,10 +97,10 @@ const ViewMovie = props => {
             setRealisator(response);
           })
         }
-    
-        if(movie.urlPoster !== undefined){
-          if(checkURL(movie.urlPoster)) {
-            setPoster(movie.urlPoster);
+        console.log(movie);
+        if(movie.posterPath !== undefined){
+          if(checkURL(movie.posterPath)) {
+            setPoster(movie.posterPath);
             setAltPoster(`${movie.title}'s poster`);
           }
         }
@@ -109,7 +110,7 @@ const ViewMovie = props => {
   });
 
   const checkURL = url => {
-    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+    return(url.match(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i) != null);
   }
 
   return (

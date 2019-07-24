@@ -5,12 +5,11 @@ const movieByIdStyle = makeStyles(theme => ({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    width: '30%',
+    width: '28%',
     boxShadow: '1px 1px 10px rgba(0,0,0, 0.2)',
     padding: '1rem',
-    '&:not(:first-child)': {
-        marginLeft: '1rem'
-    }
+    marginTop: '1rem',
+    marginLeft: '1rem'
   },
   profileInfos: {
     display: 'flex',
