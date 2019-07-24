@@ -1,6 +1,9 @@
 import React,{useState} from 'react';
 import { SearchStaffs } from '../../api/staff';
 import { SearchMovies } from '../../api/movie';
+import { moviesStyle } from '../Movies/index';
+import Movie from '../Movie';
+import BlockStaff from '../BlocStaff';
 
 const Search = () => {
   const [searchTerm,setSearchTerm] = useState('');
@@ -8,6 +11,7 @@ const Search = () => {
   const [displayMovie, setDisplayMovie] = useState(false);
   const [staffs,setStaffs] = useState([]);
   const [movies,setMovies] = useState([]);
+  const classes = moviesStyle();
 
   const submitSearch = () => {
     SearchStaffs(searchTerm).then(res => setStaffs(res));
@@ -23,74 +27,32 @@ const Search = () => {
 
     <div>
       <span onClick={() => setDisplayStaff(true)}><strong>Staffs</strong></span>
+      <span onClick={() => {setDisplayStaff(false)}}><strong>Movie</strong></span>
     </div>
     {
       displayStaff ?
         <div>
         {
-          staffs.map(staff =>
-            <div key={Math.random()}>
-              <div>
-                <label>Fistname :</label>
-                <span>{staff.firstname}</span>
-              </div>
-              <div>
-                <label>Lastname :</label>
-                <span>{staff.lastname}</span>
-              </div>
-              <div>
-                <label>Nationality :</label>
-                <span>{staff.nationality ? staff.nationality :'' }</span>
-              </div>
-              <div>
-                <label>Biography :</label>
-                <span>{staff.biography ? staff.biography :'' }</span>
-              </div>
-              <div>
-                <label>Birthday :</label>
-                <span>{staff.birthday ? staff.birthday :'' }</span>
-              </div>
-            </div>
-          )
+          staffs.map(staff => <BlockStaff  staff={staff} /> )
+
         }
         </div> :
         <div>
         </div>
     }
     <div>
-    <span onClick={() => {setDisplayStaff(false)}}><strong>Movie</strong></span>
     </div>
         { !displayStaff ? 
           <div>
           {
-            movies.map(movie =>
-              <div key={Math.random()}>
-                <div>
-                  <label>Titre :</label>
-                  <span>{movie.title}</span>
-                </div>
-                <div>
-                  <label>Année :</label>
-                  <span>{movie.year}</span>
-                </div>
-                <div>
-                  <label>Catégorie :</label>
-                  <span>{movie.category}</span>
-                </div>
-                <div>
-                  <label>Réalisateur :</label>
-                  <span>{movie.realisator}</span>
-                </div>
-                <div>
-                  <label>Acteurs :</label>
-                  <ul>
-                  { movie.actors.map(actor => 
-                      <li key={Math.random()}>{actor}</li>
-                   )}
-                    </ul>
-                </div>
-              </div>
-            )
+            <main className={classes.main}>
+              <section className={classes.container}>
+                <h1 className={classes.title}>Movie Gallery</h1>
+                <ul className={classes.list}>
+                  {movies.map(movie => <Movie movie={movie}/>)}
+                </ul>
+              </section>
+            </main>
           }
           </div> :
           <div></div>

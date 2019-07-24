@@ -4,7 +4,7 @@ import { getMovies} from "../../api/movie";
 import { makeStyles } from '@material-ui/core/styles';
 import Movie from "../Movie/index";
 
-const moviesStyle = makeStyles(theme => ({
+export const moviesStyle = makeStyles(theme => ({
     main: {
       marginTop: '2rem',
       display: 'flex',

@@ -45,7 +45,7 @@ const movieByIdStyle = makeStyles(theme => ({
   biography: {},
 }))
 
-const ViewMovie = ({staff}) => {
+const BlockStaff = ({staff}) => {
     const classes = movieByIdStyle();
 
     return (
@@ -67,4 +67,4 @@ const ViewMovie = ({staff}) => {
     )
 }
 
-export default ViewMovie
+export default BlockStaff;
