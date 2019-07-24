@@ -1,6 +1,6 @@
 import axios from './';
 
-export const addMovie = async (params = {}) => {
+export const addMovie = async params => {
   try {
     const { data } = await axios.post('/movies', params);
     return data;
@@ -9,7 +9,7 @@ export const addMovie = async (params = {}) => {
   }
 };
 
-export const getMovies = async (params = {}) => {
+export const getMovies = async params => {
   try {
     const { data } = await axios.get('/movies');
     return data;
@@ -18,7 +18,7 @@ export const getMovies = async (params = {}) => {
   }
 };
 
-export const getMovieById = async (id = {}) => {
+export const getMovieById = async id => {
   try {
     const { data } = await axios.get(`/movies/${id}`);
     return data;
@@ -27,7 +27,7 @@ export const getMovieById = async (id = {}) => {
   }
 };
 
-export const SearchMovies = async (searchTerm) => {
+export const SearchMovies = async searchTerm => {
   try {
     const { data } = await axios.get(`/movies?q=${searchTerm}`);
     return data;
