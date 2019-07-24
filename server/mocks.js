@@ -4,7 +4,7 @@ const mock = [
     "firstname": "Doris",
     "lastname": "Combs",
     "nationality": "Chile",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, June 16, 2017 10:35 AM",
     "createdAt": "Monday, March 4, 2019 4:15 PM"
   },
@@ -13,7 +13,7 @@ const mock = [
     "firstname": "Marcy",
     "lastname": "Maryellen",
     "nationality": "Antarctica",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Wednesday, September 13, 2017 6:49 AM",
     "createdAt": "Saturday, November 24, 2018 6:57 AM"
   },
@@ -22,7 +22,7 @@ const mock = [
     "firstname": "Marissa",
     "lastname": "Renee",
     "nationality": "France, Metropolitan",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Saturday, December 9, 2017 8:46 PM",
     "createdAt": "Tuesday, May 26, 2015 7:14 PM"
   },
@@ -31,7 +31,7 @@ const mock = [
     "firstname": "Tamera",
     "lastname": "Ladonna",
     "nationality": "Burundi",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Wednesday, September 17, 2014 10:52 AM",
     "createdAt": "Monday, March 10, 2014 9:56 PM"
   },
@@ -40,7 +40,7 @@ const mock = [
     "firstname": "Young",
     "lastname": "Cochran",
     "nationality": "Seychelles",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, August 11, 2016 9:11 AM",
     "createdAt": "Wednesday, December 7, 2016 2:10 PM"
   },
@@ -49,7 +49,7 @@ const mock = [
     "firstname": "Rosario",
     "lastname": "Randolph",
     "nationality": "Bolivia",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, April 9, 2017 8:45 PM",
     "createdAt": "Wednesday, August 6, 2014 1:26 PM"
   },
@@ -58,7 +58,7 @@ const mock = [
     "firstname": "Franco",
     "lastname": "Reba",
     "nationality": "Cambodia",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Wednesday, July 26, 2017 7:30 AM",
     "createdAt": "Thursday, January 11, 2018 8:26 AM"
   },
@@ -67,7 +67,7 @@ const mock = [
     "firstname": "Winters",
     "lastname": "Cooper",
     "nationality": "Poland",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, July 12, 2019 1:23 AM",
     "createdAt": "Friday, June 20, 2014 9:35 AM"
   },
@@ -76,7 +76,7 @@ const mock = [
     "firstname": "Manning",
     "lastname": "Harper",
     "nationality": "Solomon Islands",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, June 29, 2018 5:10 AM",
     "createdAt": "Thursday, March 14, 2019 11:05 PM"
   },
@@ -85,7 +85,7 @@ const mock = [
     "firstname": "Nancy",
     "lastname": "Alston",
     "nationality": "Andorra",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, November 2, 2014 3:50 PM",
     "createdAt": "Friday, November 20, 2015 11:20 PM"
   },
@@ -94,7 +94,7 @@ const mock = [
     "firstname": "Teresa",
     "lastname": "Gross",
     "nationality": "Virgin Islands (British)",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Tuesday, April 3, 2018 3:49 PM",
     "createdAt": "Friday, November 30, 2018 4:58 PM"
   },
@@ -103,7 +103,7 @@ const mock = [
     "firstname": "Kristi",
     "lastname": "Jacqueline",
     "nationality": "Lebanon",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, June 24, 2016 12:53 PM",
     "createdAt": "Saturday, April 2, 2016 6:20 PM"
   },
@@ -112,7 +112,7 @@ const mock = [
     "firstname": "Church",
     "lastname": "Earnestine",
     "nationality": "Iceland",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, December 19, 2016 7:22 PM",
     "createdAt": "Friday, August 5, 2016 10:38 AM"
   },
@@ -121,7 +121,7 @@ const mock = [
     "firstname": "Jessica",
     "lastname": "Faye",
     "nationality": "Saudi Arabia",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, August 24, 2017 11:14 PM",
     "createdAt": "Monday, March 6, 2017 9:04 AM"
   },
@@ -130,7 +130,7 @@ const mock = [
     "firstname": "Loretta",
     "lastname": "Vaughn",
     "nationality": "Liechtenstein",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, August 3, 2017 11:24 PM",
     "createdAt": "Tuesday, January 24, 2017 3:10 AM"
   },
@@ -139,7 +139,7 @@ const mock = [
     "firstname": "Nicole",
     "lastname": "Milagros",
     "nationality": "Luxembourg",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, June 8, 2015 10:41 PM",
     "createdAt": "Tuesday, November 14, 2017 2:53 AM"
   },
@@ -148,7 +148,7 @@ const mock = [
     "firstname": "Lorena",
     "lastname": "Dollie",
     "nationality": "Swaziland",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, November 23, 2015 8:00 PM",
     "createdAt": "Saturday, June 22, 2019 9:28 PM"
   },
@@ -157,7 +157,7 @@ const mock = [
     "firstname": "Kara",
     "lastname": "Paul",
     "nationality": "Montserrat",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, October 12, 2017 7:03 AM",
     "createdAt": "Sunday, October 11, 2015 6:10 AM"
   },
@@ -166,7 +166,7 @@ const mock = [
     "firstname": "Sampson",
     "lastname": "Erika",
     "nationality": "Mauritius",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, March 3, 2014 3:36 PM",
     "createdAt": "Monday, January 7, 2019 9:00 PM"
   },
@@ -175,7 +175,7 @@ const mock = [
     "firstname": "Mayer",
     "lastname": "Gilmore",
     "nationality": "Mozambique",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Saturday, October 13, 2018 6:22 PM",
     "createdAt": "Friday, April 5, 2019 9:12 PM"
   },
@@ -184,7 +184,7 @@ const mock = [
     "firstname": "Angie",
     "lastname": "Bond",
     "nationality": "Switzerland",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Tuesday, December 26, 2017 2:15 AM",
     "createdAt": "Sunday, September 27, 2015 11:15 AM"
   },
@@ -193,7 +193,7 @@ const mock = [
     "firstname": "Brittney",
     "lastname": "Vaughan",
     "nationality": "Senegal",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, September 4, 2015 7:25 PM",
     "createdAt": "Sunday, August 24, 2014 11:54 AM"
   },
@@ -202,7 +202,7 @@ const mock = [
     "firstname": "Wendy",
     "lastname": "Louise",
     "nationality": "Kiribati",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, January 2, 2014 1:07 PM",
     "createdAt": "Saturday, December 17, 2016 2:19 AM"
   },
@@ -211,7 +211,7 @@ const mock = [
     "firstname": "Luann",
     "lastname": "Priscilla",
     "nationality": "Ecuador",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Wednesday, April 1, 2015 4:21 AM",
     "createdAt": "Sunday, June 10, 2018 12:27 PM"
   },
@@ -220,7 +220,7 @@ const mock = [
     "firstname": "Boyle",
     "lastname": "Davidson",
     "nationality": "Saint Lucia",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, April 27, 2018 4:39 AM",
     "createdAt": "Saturday, May 5, 2018 9:43 AM"
   },
@@ -229,7 +229,7 @@ const mock = [
     "firstname": "Bright",
     "lastname": "Mcconnell",
     "nationality": "Saint Kitts and Nevis",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Wednesday, July 30, 2014 8:47 AM",
     "createdAt": "Sunday, May 29, 2016 11:03 PM"
   },
@@ -238,7 +238,7 @@ const mock = [
     "firstname": "Dillon",
     "lastname": "Dena",
     "nationality": "Aruba",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Tuesday, January 14, 2014 9:23 AM",
     "createdAt": "Monday, August 28, 2017 2:12 AM"
   },
@@ -247,7 +247,7 @@ const mock = [
     "firstname": "Roxie",
     "lastname": "William",
     "nationality": "Bosnia and Herzegovina",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, November 25, 2018 12:25 AM",
     "createdAt": "Tuesday, May 23, 2017 2:35 PM"
   },
@@ -256,7 +256,7 @@ const mock = [
     "firstname": "Kathryn",
     "lastname": "Henderson",
     "nationality": "St. Pierre and Miquelon",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, March 6, 2016 4:01 AM",
     "createdAt": "Wednesday, August 2, 2017 1:50 AM"
   },
@@ -265,7 +265,7 @@ const mock = [
     "firstname": "Morse",
     "lastname": "Kaitlin",
     "nationality": "Philippines",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Wednesday, December 16, 2015 10:52 PM",
     "createdAt": "Tuesday, September 20, 2016 6:33 PM"
   },
@@ -274,7 +274,7 @@ const mock = [
     "firstname": "Tonya",
     "lastname": "Dolly",
     "nationality": "Zaire",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, September 23, 2018 2:10 AM",
     "createdAt": "Tuesday, October 25, 2016 6:52 AM"
   },
@@ -283,7 +283,7 @@ const mock = [
     "firstname": "Hogan",
     "lastname": "Leola",
     "nationality": "Lesotho",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, August 28, 2016 6:44 PM",
     "createdAt": "Friday, February 7, 2014 1:33 PM"
   },
@@ -292,7 +292,7 @@ const mock = [
     "firstname": "Osborne",
     "lastname": "Cindy",
     "nationality": "Zambia",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, June 12, 2017 1:17 AM",
     "createdAt": "Sunday, January 17, 2016 8:47 AM"
   },
@@ -301,7 +301,7 @@ const mock = [
     "firstname": "Brown",
     "lastname": "Suzette",
     "nationality": "Afghanistan",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, March 22, 2019 4:15 PM",
     "createdAt": "Friday, October 27, 2017 5:53 AM"
   },
@@ -310,7 +310,7 @@ const mock = [
     "firstname": "Thomas",
     "lastname": "Queen",
     "nationality": "Yugoslavia",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, March 18, 2018 9:38 PM",
     "createdAt": "Saturday, November 7, 2015 6:10 AM"
   },
@@ -319,7 +319,7 @@ const mock = [
     "firstname": "Bowman",
     "lastname": "Wyatt",
     "nationality": "Turks and Caicos Islands",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, March 20, 2017 2:26 PM",
     "createdAt": "Thursday, June 14, 2018 2:10 AM"
   },
@@ -328,7 +328,7 @@ const mock = [
     "firstname": "Chaney",
     "lastname": "Denise",
     "nationality": "Nigeria",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Saturday, March 29, 2014 9:07 AM",
     "createdAt": "Tuesday, August 25, 2015 12:54 AM"
   },
@@ -337,7 +337,7 @@ const mock = [
     "firstname": "Laverne",
     "lastname": "Valencia",
     "nationality": "Togo",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, January 27, 2014 4:44 AM",
     "createdAt": "Saturday, October 3, 2015 4:25 PM"
   },
@@ -346,7 +346,7 @@ const mock = [
     "firstname": "Veronica",
     "lastname": "Cantu",
     "nationality": "Barbados",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Tuesday, April 15, 2014 6:38 PM",
     "createdAt": "Saturday, February 11, 2017 10:32 AM"
   },
@@ -355,7 +355,7 @@ const mock = [
     "firstname": "Emerson",
     "lastname": "Therese",
     "nationality": "Mayotte",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, March 17, 2016 6:52 PM",
     "createdAt": "Thursday, March 3, 2016 9:49 PM"
   },
@@ -364,7 +364,7 @@ const mock = [
     "firstname": "Felecia",
     "lastname": "Guadalupe",
     "nationality": "Canada",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Tuesday, March 7, 2017 12:02 AM",
     "createdAt": "Monday, June 22, 2015 3:34 PM"
   },
@@ -373,7 +373,7 @@ const mock = [
     "firstname": "Susanne",
     "lastname": "Merritt",
     "nationality": "Bhutan",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, April 1, 2018 11:20 AM",
     "createdAt": "Saturday, March 25, 2017 5:39 AM"
   },
@@ -382,7 +382,7 @@ const mock = [
     "firstname": "Stafford",
     "lastname": "Amelia",
     "nationality": "US Minor Outlying Islands",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, December 11, 2015 9:36 AM",
     "createdAt": "Sunday, June 23, 2019 5:44 AM"
   },
@@ -391,7 +391,7 @@ const mock = [
     "firstname": "Lopez",
     "lastname": "Foster",
     "nationality": "Georgia",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, April 29, 2019 1:53 AM",
     "createdAt": "Saturday, March 25, 2017 9:33 AM"
   },
@@ -400,7 +400,7 @@ const mock = [
     "firstname": "Sellers",
     "lastname": "Middleton",
     "nationality": "France",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, June 16, 2016 4:31 AM",
     "createdAt": "Thursday, August 10, 2017 11:30 AM"
   },
@@ -409,7 +409,7 @@ const mock = [
     "firstname": "Hale",
     "lastname": "Wilson",
     "nationality": "New Zealand",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Tuesday, January 20, 2015 5:24 PM",
     "createdAt": "Friday, July 24, 2015 1:27 PM"
   },
@@ -418,7 +418,7 @@ const mock = [
     "firstname": "Jacquelyn",
     "lastname": "Ruby",
     "nationality": "Austria",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, March 5, 2018 7:07 AM",
     "createdAt": "Sunday, June 2, 2019 2:29 AM"
   },
@@ -427,7 +427,7 @@ const mock = [
     "firstname": "Leanne",
     "lastname": "Bartlett",
     "nationality": "Mali",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, June 21, 2015 4:01 AM",
     "createdAt": "Thursday, November 10, 2016 10:00 PM"
   },
@@ -436,7 +436,7 @@ const mock = [
     "firstname": "Fuller",
     "lastname": "Boone",
     "nationality": "Peru",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, May 9, 2014 8:19 AM",
     "createdAt": "Sunday, March 19, 2017 3:36 AM"
   },
@@ -445,7 +445,7 @@ const mock = [
     "firstname": "Carver",
     "lastname": "Esther",
     "nationality": "Mexico",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, January 31, 2019 1:38 AM",
     "createdAt": "Tuesday, November 17, 2015 6:02 PM"
   },
@@ -454,7 +454,7 @@ const mock = [
     "firstname": "Kristine",
     "lastname": "Joyce",
     "nationality": "Guinea-Bissau",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, July 17, 2015 4:32 AM",
     "createdAt": "Wednesday, August 23, 2017 9:07 AM"
   },
@@ -463,7 +463,7 @@ const mock = [
     "firstname": "Brennan",
     "lastname": "Mckenzie",
     "nationality": "French Guiana",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Tuesday, September 26, 2017 6:06 AM",
     "createdAt": "Monday, February 12, 2018 5:21 AM"
   },
@@ -472,7 +472,7 @@ const mock = [
     "firstname": "Tania",
     "lastname": "Mcfarland",
     "nationality": "Sudan",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Saturday, September 3, 2016 11:24 PM",
     "createdAt": "Saturday, January 12, 2019 6:12 AM"
   },
@@ -481,7 +481,7 @@ const mock = [
     "firstname": "Claire",
     "lastname": "Howard",
     "nationality": "Sao Tome and Principe",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, October 8, 2018 6:43 AM",
     "createdAt": "Thursday, March 8, 2018 4:15 PM"
   },
@@ -490,7 +490,7 @@ const mock = [
     "firstname": "Mcgee",
     "lastname": "Lawrence",
     "nationality": "Laos",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, December 22, 2017 12:00 PM",
     "createdAt": "Friday, November 17, 2017 6:25 AM"
   },
@@ -499,7 +499,7 @@ const mock = [
     "firstname": "Bolton",
     "lastname": "Jenny",
     "nationality": "Tuvalu",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Saturday, January 16, 2016 4:39 PM",
     "createdAt": "Thursday, December 22, 2016 5:42 AM"
   },
@@ -508,7 +508,7 @@ const mock = [
     "firstname": "Marlene",
     "lastname": "Isabelle",
     "nationality": "Niger",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Monday, April 20, 2015 7:49 AM",
     "createdAt": "Friday, February 14, 2014 4:41 PM"
   },
@@ -517,7 +517,7 @@ const mock = [
     "firstname": "Sullivan",
     "lastname": "Mcleod",
     "nationality": "Paraguay",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, August 21, 2014 8:06 PM",
     "createdAt": "Sunday, August 13, 2017 4:54 AM"
   },
@@ -526,7 +526,7 @@ const mock = [
     "firstname": "Stephenson",
     "lastname": "Key",
     "nationality": "Guatemala",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Tuesday, November 27, 2018 11:24 PM",
     "createdAt": "Monday, November 10, 2014 9:50 PM"
   },
@@ -535,7 +535,7 @@ const mock = [
     "firstname": "Ramos",
     "lastname": "Magdalena",
     "nationality": "Madagascar",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, April 27, 2017 5:19 AM",
     "createdAt": "Sunday, November 4, 2018 1:42 PM"
   },
@@ -544,7 +544,7 @@ const mock = [
     "firstname": "Underwood",
     "lastname": "Sheri",
     "nationality": "Sri Lanka",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, September 9, 2016 2:06 AM",
     "createdAt": "Sunday, April 3, 2016 12:27 PM"
   },
@@ -553,7 +553,7 @@ const mock = [
     "firstname": "Bradshaw",
     "lastname": "Silvia",
     "nationality": "Korea (North)",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Sunday, February 24, 2019 12:03 PM",
     "createdAt": "Wednesday, June 14, 2017 5:06 PM"
   },
@@ -562,7 +562,7 @@ const mock = [
     "firstname": "Livingston",
     "lastname": "Munoz",
     "nationality": "India",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Thursday, August 21, 2014 2:24 AM",
     "createdAt": "Friday, September 16, 2016 10:15 PM"
   },
@@ -571,7 +571,7 @@ const mock = [
     "firstname": "Marjorie",
     "lastname": "Noel",
     "nationality": "Samoa",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Wednesday, August 24, 2016 5:25 PM",
     "createdAt": "Monday, April 13, 2015 9:30 PM"
   },
@@ -580,7 +580,7 @@ const mock = [
     "firstname": "Fleming",
     "lastname": "Wiley",
     "nationality": "Cape Verde",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, March 25, 2016 3:45 PM",
     "createdAt": "Sunday, July 23, 2017 6:44 PM"
   },
@@ -589,7 +589,7 @@ const mock = [
     "firstname": "Marcie",
     "lastname": "Rosanne",
     "nationality": "Falkland Islands (Malvinas)",
-    "biography": "<ReferenceError: paragraphs is not defined>",
+    "biography": "lorem ipsum",
     "birthday": "Friday, February 1, 2019 2:07 AM",
     "createdAt": "Saturday, March 28, 2015 8:23 PM"
   }
