@@ -9,6 +9,7 @@ import Search from "../Search";
 import MovieAdd from '../MovieAdd';
 import ViewMovie from '../ViewMovie';
 import Movies from '../Movies';
+import Home from '../Home';
 
 const Router = () => (
   <>
@@ -18,6 +19,7 @@ const Router = () => (
     <Route path="/search" exact component={Search} />
     <Route path="/movie/:id" exact component={ViewMovie} />
     <Route path="/movies" exact component={Movies} />
+    <Route path="/" exact component={Home}/>
     <PrivateRoute path="/create/staff" exact component={StaffAdd} />
     <PrivateRoute path="/create/movie" exact component={MovieAdd} />
   </>
