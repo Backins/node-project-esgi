@@ -20,7 +20,7 @@ const Home = () => {
     {
             <main className={classesMovie.main}>
               <section className={classesMovie.container}>
-                <h1 className={classesMovie.title}>Movies list</h1>
+                <h1 className={classesMovie.title}>Last Movies</h1>
                 <ul className={classesMovie.list}>
                   {movies.map(movie => <Movie movie={movie}/>)}
                 </ul>
